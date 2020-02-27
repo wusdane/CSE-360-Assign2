@@ -80,9 +80,37 @@ public class SimpleList {
 	}
 	
 	//Returns the int max
-	public int max() {
+	public int size() {
 		//Returns the int max
 		return max;
+	}
+	
+	//Returns the first element
+	public int first() {
+		//Checks to see if there are any elements in the list
+		int element = -1;
+		
+		//Grabs first element
+		if(count != 0) {
+			element = list[0];
+		}
+		
+		//Returns not found or the element
+		return element;
+	}
+	
+	//Returns the last element
+	public int last() {
+		//Checks to see if there are any elements in the list
+		int element = -1;
+		
+		//Grabs last element
+		if(count != 0) {
+			element = list[count - 1];
+		}
+		
+		//Returns not found or the element
+		return element;
 	}
 	
 	//Returns list as a string w/ " " in between each integer
@@ -154,6 +182,7 @@ public class SimpleList {
 			for(int i = 0; i < count; i++) {
 				list[i] = temp[i];
 			}
+		//Checks if count is empty & will reduce the max to 1	
 		}else if(count * 100 < max * 75 && count == 0) {
 			max = 1;
 			list = new int[1];

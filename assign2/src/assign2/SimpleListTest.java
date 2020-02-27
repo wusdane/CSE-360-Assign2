@@ -86,7 +86,7 @@ public class SimpleListTest {
 		test.add(11);
 		test.add(4);
 		test.remove(11);
-		int x = test.max();
+		int x = test.size();
 		assertEquals(2, x);
 	}
 	
@@ -104,7 +104,7 @@ public class SimpleListTest {
 		test.add(11);
 		test.add(4);
 		test.remove(11);
-		int x = test.max();
+		int x = test.size();
 		assertEquals(10, x);
 	}
 	
@@ -142,7 +142,7 @@ public class SimpleListTest {
 		test.add(11);
 		test.add(5);
 		test.add(1);
-		int x = test.max();
+		int x = test.size();
 		assertEquals(15, x);
 	}
 	
@@ -163,7 +163,7 @@ public class SimpleListTest {
 		SimpleList test = new SimpleList();
 		test.add(11);
 		test.remove(11);
-		assertEquals(1, test.max());
+		assertEquals(1, test.size());
 	}
 	
 	//Tests if the max is increased after being brought to 1
@@ -174,7 +174,7 @@ public class SimpleListTest {
 		test.remove(11);
 		test.add(11);
 		test.add(4);
-		assertEquals(2, test.max());
+		assertEquals(2, test.size());
 	}
 	
 	//Tests remove() when there are duplicates, and removes the first instances of that element
