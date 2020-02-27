@@ -71,6 +71,11 @@ public class SimpleList {
 		return count;
 	}
 	
+	//Returns the int max
+	public int max() {
+		//Returns the int max
+		return max;
+	}
 	
 	//Returns list as a string w/ " " in between each integer
 	public String toString() {
@@ -129,6 +134,17 @@ public class SimpleList {
 			count--;
 			for(int index = place; index < count; index++) {
 				list[index] = list[index + 1];
+			}
+		}
+		
+		//Decreases the max if it has more than 25% unused space
+		if(count * 100 < max * 75 && max != 1) {
+			max = count;
+			int[] temp = list;
+			list = new int[max];
+			
+			for(int i = 0; i < count; i++) {
+				list[i] = temp[i];
 			}
 		}
 		
