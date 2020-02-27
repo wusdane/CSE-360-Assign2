@@ -12,6 +12,7 @@ package assign2;
 public class SimpleList {
 	//Initializes the integers for the class
 	private int count;
+	private int max;
 	private int[] list;
 	
 	//Initializing SimpleList and initializing variables
@@ -20,6 +21,7 @@ public class SimpleList {
 		 * int array list to have 10 elements
 		*/
 		count = 0;
+		max = 10;
 		list = new int[10];
 		
 		//Exits the function
@@ -29,12 +31,18 @@ public class SimpleList {
 	//Function to add an element to list
 	public void add(int num) {
 		/*Checks to see if count is at it's max
-		 * if it is, it will subtract it by 1 to
-		 * allow the function to copy over the last
-		 * element in list
+		 * if it is, it will increase the max by 50%,
+		 * then it will create a new array with the new
+		 * max and transfer over the elements
 		*/
-		if(count == 10) {
-			count--;
+		if(count == max) {
+			max = max + max/2;
+			int[] temp = list;
+			list = new int[max];
+			
+			for(int i = 0; i < count; i++) {
+				list[i] = temp[i];
+			}
 		}
 		
 		/*Goes through the list and moves the
