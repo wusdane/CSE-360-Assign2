@@ -55,13 +55,60 @@ public class SimpleListTest {
 		assertEquals(10, test.search(9));
 	}
 	
-	//Tests count() is incrementing
+	//Tests count() is incrementing w/ add()
 	@Test
-	public void testCount() {
+	public void testCountAdd() {
 		SimpleList test = new SimpleList();
 		test.add(3);
 		test.add(11);
 		test.add(4);
+		int x = test.count();
+		assertEquals(3, x);
+	}
+	
+	//Tests first() is grabbing correctly
+	@Test
+	public void testFirst() {
+		SimpleList test = new SimpleList();
+		test.add(3);
+		test.add(11);
+		test.add(4);
+		int x = test.first();
+		assertEquals(4, x);
+	}
+		
+	//Tests last() is grabbing correctly
+	@Test
+	public void testLast() {
+		SimpleList test = new SimpleList();
+		test.add(3);
+		test.add(11);
+		test.add(4);
+		int x = test.last();
+		assertEquals(3, x);
+	}
+	
+	//Tests first() is returning -1 when list is empty
+	@Test
+	public void testFirstEmpty() {
+		SimpleList test = new SimpleList();
+		assertEquals(-1,test.first());
+	}
+	
+	//Tests last() is returning -1 when list is empty
+	@Test
+	public void testLastEmpty() {
+		SimpleList test = new SimpleList();
+		assertEquals(-1,test.last());
+	}
+	
+	//Tests count() is incrementing w/ append()
+	@Test
+	public void testCountAppend() {
+		SimpleList test = new SimpleList();
+		test.append(3);
+		test.append(11);
+		test.append(4);
 		int x = test.count();
 		assertEquals(3, x);
 	}
@@ -78,7 +125,7 @@ public class SimpleListTest {
 		assertEquals(2, x);
 	}
 	
-	//Tests max() is reducing
+	//Tests size() is reducing
 	@Test
 	public void testMaxRemoveReduction() {
 		SimpleList test = new SimpleList();
@@ -110,7 +157,7 @@ public class SimpleListTest {
 	
 	//Tests count() after 11 elements are added
 	@Test
-	public void testCountOver10() {
+	public void testCountOver10Add() {
 		SimpleList test = new SimpleList();
 		test.add(3);
 		test.add(11);
@@ -123,6 +170,25 @@ public class SimpleListTest {
 		test.add(11);
 		test.add(5);
 		test.add(1);
+		int x = test.count();
+		assertEquals(11, x);
+	}
+	
+	//Tests count() after 11 elements are appended
+	@Test
+	public void testCountOver10Append() {
+		SimpleList test = new SimpleList();
+		test.append(3);
+		test.append(11);
+		test.append(4);
+		test.append(11);
+		test.append(5);
+		test.append(3);
+		test.append(11);
+		test.append(4);
+		test.append(11);
+		test.append(5);
+		test.append(1);
 		int x = test.count();
 		assertEquals(11, x);
 	}
@@ -192,13 +258,24 @@ public class SimpleListTest {
 	
 	//Tests the search() method to see if it is returning the correct position
 	@Test
-	public void testSearch() {
+	public void testSearchAdd() {
 		SimpleList test = new SimpleList();
 		test.add(3);
 		test.add(11);
 		test.add(4);
 		int y = test.search(11);
 		assertEquals(1, y);
+	}
+	
+	//Tests the search() method w/ append()
+	@Test
+	public void testSearchAppend() {
+		SimpleList test = new SimpleList();
+		test.append(3);
+		test.append(11);
+		test.append(4);
+		int y = test.search(4);
+		assertEquals(2, y);
 	}
 	
 	//Tests search() when the requested element is not in the array
@@ -227,12 +304,22 @@ public class SimpleListTest {
 	
 	//Tests the toString() method
 	@Test
-	public void testToString() {
+	public void testToStringAdd() {
 		SimpleList test = new SimpleList();
 		test.add(3);
 		test.add(11);
 		test.add(4);
 		assertEquals("4 11 3", test.toString());
+	}
+	
+	//Tests the toString() method
+	@Test
+	public void testToStringAppend() {
+		SimpleList test = new SimpleList();
+		test.append(3);
+		test.append(11);
+		test.append(4);
+		assertEquals("3 11 4", test.toString());
 	}
 	
 	//Tests the toString() method after a remove() method is completed

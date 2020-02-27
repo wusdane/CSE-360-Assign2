@@ -28,7 +28,7 @@ public class SimpleList {
 		return;
 	}
 	
-	//Function to add an element to list
+	//Function to add an element to the front of the list
 	public void add(int num) {
 		/*Checks to see if count is at it's max
 		 * if it is, it will increase the max by 50%,
@@ -72,6 +72,40 @@ public class SimpleList {
 		return;
 	}
 	
+	//Function to add an element to the end of the list
+	public void append(int num) {
+		/*Checks to see if count is at it's max
+		 * if it is, it will increase the max by 50%,
+		 * then it will create a new array with the new
+		 * max and transfer over the elements
+		*/
+		if(count == max) {
+			/*Checks if the max is odd or even &
+			 * increases size accordingly & will add 1 to
+			 * an odd number to make the max even
+			 */
+			if(max % 2 == 0) {
+				max = max + max / 2;
+			}else {
+				max = max + max / 2 + 1;
+			}
+			int[] temp = list;
+			list = new int[max];
+			
+			for(int i = 0; i < count; i++) {
+				list[i] = temp[i];
+			}
+		}
+		
+		//Sets the last index as the given number
+		list[count] = num;
+			
+		//Increases the count
+		count++;
+			
+		//Exits the function
+		return;
+	}
 	
 	//Returns the int count
 	public int count() {
@@ -157,7 +191,8 @@ public class SimpleList {
 	}
 
 	/*Removes the number and moves the list over, if
-	 *  the number is in the array
+	 *  the number is in the array & reduces the size
+	 *  of the array if applicable
 	 */
 	void remove(int num) {
 		//Uses the search function to find the number
