@@ -2,7 +2,10 @@
  * Class ID: 434
  * Assignment 2
  * Description: A class files that will take numbers and put them into an integer
- * array of 10 elements
+ * array of 10 elements & will remove and add more integers.  This class will also
+ * increase or decrease the size accordingly to if there is not enough spaces or too
+ * many.
+ * URL: https://github.com/wusdane/CSE-360-Assign2
  */
 package assign2;
 
