@@ -52,7 +52,7 @@ public class SimpleListTest {
 		test.add(11);
 		test.add(5);
 		test.add(1);
-		assertEquals(-1, test.search(9));
+		assertEquals(10, test.search(9));
 	}
 	
 	//Tests count() is incrementing
@@ -78,6 +78,36 @@ public class SimpleListTest {
 		assertEquals(2, x);
 	}
 	
+	//Tests max() is reducing
+	@Test
+	public void testMaxRemoveReduction() {
+		SimpleList test = new SimpleList();
+		test.add(3);
+		test.add(11);
+		test.add(4);
+		test.remove(11);
+		int x = test.max();
+		assertEquals(2, x);
+	}
+	
+	//Tests max() is not reducing when count is over 75%
+	@Test
+	public void testMaxRemoveNoReduction() {
+		SimpleList test = new SimpleList();
+		test.add(3);
+		test.add(11);
+		test.add(4);
+		test.add(3);
+		test.add(11);
+		test.add(4);
+		test.add(3);
+		test.add(11);
+		test.add(4);
+		test.remove(11);
+		int x = test.max();
+		assertEquals(10, x);
+	}
+	
 	//Tests count() after 11 elements are added
 	@Test
 	public void testCountOver10() {
@@ -94,7 +124,26 @@ public class SimpleListTest {
 		test.add(5);
 		test.add(1);
 		int x = test.count();
-		assertEquals(10, x);
+		assertEquals(11, x);
+	}
+	
+	//Tests max() after 11 elements are added
+	@Test
+	public void testMaxOver10() {
+		SimpleList test = new SimpleList();
+		test.add(3);
+		test.add(11);
+		test.add(4);
+		test.add(11);
+		test.add(5);
+		test.add(3);
+		test.add(11);
+		test.add(4);
+		test.add(11);
+		test.add(5);
+		test.add(1);
+		int x = test.max();
+		assertEquals(15, x);
 	}
 	
 	//Tests if the remove() method removes the desired number
