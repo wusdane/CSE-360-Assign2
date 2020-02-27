@@ -157,6 +157,26 @@ public class SimpleListTest {
 		assertEquals("4 3", test.toString());
 	}
 	
+	//Tests if the remove() method reduces max below 1
+	@Test
+	public void testMaxRemove1Element() {
+		SimpleList test = new SimpleList();
+		test.add(11);
+		test.remove(11);
+		assertEquals(1, test.max());
+	}
+	
+	//Tests if the max is increased after being brought to 1
+	@Test
+	public void testMaxIncreaseAfterReduction() {
+		SimpleList test = new SimpleList();
+		test.add(11);
+		test.remove(11);
+		test.add(11);
+		test.add(4);
+		assertEquals(2, test.max());
+	}
+	
 	//Tests remove() when there are duplicates, and removes the first instances of that element
 	@Test
 	public void testRemoveDupe() {

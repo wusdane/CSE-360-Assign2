@@ -36,7 +36,15 @@ public class SimpleList {
 		 * max and transfer over the elements
 		*/
 		if(count == max) {
-			max = max + max/2;
+			/*Checks if the max is odd or even &
+			 * increases size accordingly & will add 1 to
+			 * an odd number to make the max even
+			 */
+			if(max % 2 == 0) {
+				max = max + max / 2;
+			}else {
+				max = max + max / 2 + 1;
+			}
 			int[] temp = list;
 			list = new int[max];
 			
@@ -138,7 +146,7 @@ public class SimpleList {
 		}
 		
 		//Decreases the max if it has more than 25% unused space
-		if(count * 100 < max * 75 && max != 1) {
+		if(count * 100 < max * 75 && count != 0) {
 			max = count;
 			int[] temp = list;
 			list = new int[max];
@@ -146,6 +154,9 @@ public class SimpleList {
 			for(int i = 0; i < count; i++) {
 				list[i] = temp[i];
 			}
+		}else if(count * 100 < max * 75 && count == 0) {
+			max = 1;
+			list = new int[1];
 		}
 		
 		//Exits the function
